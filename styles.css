@@ -647,6 +647,37 @@ body.nav-open { overflow: hidden; }
   html { scroll-behavior: auto; }
 }
 
+.overhang-diagrams,
+.overhang-photos {
+  display: grid;
+  gap: 16px;
+  margin: 0 0 18px;
+}
+.overhang-diagrams { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.overhang-photos { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.overhang-diagrams figure { margin: 0; }
+.overhang-diagrams img,
+.overhang-photos img {
+  width: 100%;
+  height: auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.overhang-diagrams figcaption {
+  margin: 8px 2px 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.4;
+}
+.overhang-links { margin: 0 0 18px; padding-left: 1.2em; }
+.overhang-links a:focus-visible,
+.overhang-diagrams a:focus-visible,
+.overhang-photos a:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
 @media print {
   .site-header, .site-footer, .skip, .no-print { display: none !important; }
   .section { padding: 0; }
