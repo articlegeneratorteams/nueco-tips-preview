@@ -647,35 +647,130 @@ body.nav-open { overflow: hidden; }
   html { scroll-behavior: auto; }
 }
 
-.overhang-diagrams,
-.overhang-photos {
+.overhang-features {
   display: grid;
+  grid-template-columns: 1fr;
   gap: 16px;
-  margin: 0 0 18px;
+  margin: 8px 0 18px;
 }
-.overhang-diagrams { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-.overhang-photos { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
-.overhang-diagrams figure { margin: 0; }
-.overhang-diagrams img,
-.overhang-photos img {
+.overhang-feature {
+  margin: 0;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 12px 12px 14px;
+}
+.overhang-diagram {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: #fff;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.overhang-diagram img {
   width: 100%;
   height: auto;
   background: #fff;
-  border: 1px solid var(--line);
   border-radius: 12px;
 }
-.overhang-diagrams figcaption {
-  margin: 8px 2px 0;
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.4;
+.overhang-feature figcaption {
+  margin: 10px 2px 0;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 16px;
 }
-.overhang-links { margin: 0 0 18px; padding-left: 1.2em; }
-.overhang-links a:focus-visible,
-.overhang-diagrams a:focus-visible,
-.overhang-photos a:focus-visible {
+.overhang-actions { margin: 0 0 22px; }
+.overhang-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+.overhang-card {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #fff;
+  color: inherit;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+}
+.overhang-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--paper);
+}
+.overhang-card span {
+  display: block;
+  padding: 10px 12px 12px;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.35;
+}
+.overhang-card:focus-visible,
+.overhang-diagram:focus-visible,
+.lightbox-nav:focus-visible,
+.lightbox-close:focus-visible {
   outline: 3px solid var(--blue);
   outline-offset: 3px;
+}
+#photo-lightbox {
+  width: min(1100px, calc(100vw - 24px));
+  max-width: calc(100vw - 24px);
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+#photo-lightbox::backdrop { background: rgba(16, 37, 68, 0.82); }
+.lightbox-panel {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.lightbox-bar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 10px 12px;
+}
+.lightbox-nav,
+.lightbox-close {
+  border: 0;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 10px;
+  min-height: 44px;
+  padding: 8px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+#photo-lightbox img {
+  width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  background: #102544;
+}
+#photo-lightbox-caption {
+  margin: 0;
+  padding: 12px 16px 16px;
+  color: var(--navy);
+  font-weight: 700;
+}
+@media (min-width: 640px) {
+  .overhang-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .overhang-features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1100px) {
+  .overhang-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 @media print {

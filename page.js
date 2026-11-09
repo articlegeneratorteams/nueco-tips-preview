@@ -95,6 +95,8 @@
 
   document.addEventListener("keydown", function (event) {
     if (event.key !== "Escape") return;
+    var dialog = document.getElementById("photo-lightbox");
+    if (dialog && dialog.open) return;
     if (active) {
       event.preventDefault();
       closePlayer(true);
@@ -102,4 +104,54 @@
     }
     closeNav();
   });
+
+  var dialog = document.getElementById("photo-lightbox");
+  var lightboxImg = document.getElementById("photo-lightbox-img");
+  var lightboxCaption = document.getElementById("photo-lightbox-caption");
+  var photos = Array.prototype.slice.call(document.querySelectorAll(".js-photo"));
+  var photoIndex = 0;
+  var photoOpener = null;
+
+  function showPhoto(index) {
+    var item = photos[index];
+    if (!item || !lightboxImg) return;
+    photoIndex = index;
+    lightboxImg.src = item.getAttribute("data-full");
+    lightboxImg.alt = item.getAttribute("data-caption") || "";
+    if (lightboxCaption) lightboxCaption.textContent = item.getAttribute("data-caption") || "";
+  }
+
+  if (dialog && photos.length) {
+    photos.forEach(function (button, index) {
+      button.addEventListener("click", function () {
+        photoOpener = button;
+        showPhoto(index);
+        if (typeof dialog.showModal === "function") dialog.showModal();
+        else dialog.setAttribute("open", "");
+        var close = document.getElementById("photo-close");
+        if (close) close.focus();
+      });
+    });
+    document.getElementById("photo-close").addEventListener("click", function () {
+      dialog.close();
+    });
+    document.getElementById("photo-prev").addEventListener("click", function () {
+      showPhoto((photoIndex - 1 + photos.length) % photos.length);
+    });
+    document.getElementById("photo-next").addEventListener("click", function () {
+      showPhoto((photoIndex + 1) % photos.length);
+    });
+    dialog.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        showPhoto((photoIndex + 1) % photos.length);
+      } else if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        showPhoto((photoIndex - 1 + photos.length) % photos.length);
+      }
+    });
+    dialog.addEventListener("close", function () {
+      if (photoOpener && typeof photoOpener.focus === "function") photoOpener.focus();
+    });
+  }
 })();
