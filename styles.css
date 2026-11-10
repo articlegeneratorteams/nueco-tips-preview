@@ -466,19 +466,29 @@ body.nav-open { overflow: hidden; }
 .intro-links a { color: #fff; font-weight: 700; }
 .page-intro .plans-badge {
   display: block;
-  width: min(100%, 920px);
+  box-sizing: border-box;
+  width: 100%;
   margin: 14px auto 4px;
-  padding: 14px 20px;
+  padding: 12px 16px;
   border-radius: 18px;
   background: #fff;
   color: var(--navy);
   text-align: center;
   font-family: Roboto, "Open Sans", sans-serif;
   font-weight: 800;
-  font-size: clamp(15px, 1.7vw, 20px);
+  font-size: 14px;
   line-height: 1.35;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+}
+@media (min-width: 1024px) {
+  .page-intro .plans-badge {
+    font-size: 16px;
+    white-space: nowrap;
+  }
+}
+@media (min-width: 1280px) {
+  .page-intro .plans-badge { font-size: 19px; }
 }
 
 .series-section { padding: 16px 20px 28px; scroll-margin-top: calc(var(--header) + 12px); }
