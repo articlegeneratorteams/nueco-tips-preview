@@ -84,14 +84,13 @@
     frame.focus();
   }
 
-  var series = document.querySelector(".series-list");
-  if (series) {
+  document.querySelectorAll(".series-list").forEach(function (series) {
     series.addEventListener("click", function (event) {
       var button = event.target.closest(".video-play");
       if (!button || !series.contains(button)) return;
       openPlayer(button);
     });
-  }
+  });
 
   document.addEventListener("keydown", function (event) {
     if (event.key !== "Escape") return;
