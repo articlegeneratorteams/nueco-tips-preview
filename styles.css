@@ -587,6 +587,21 @@ body.nav-open { overflow: hidden; }
 }
 .series-num { display: inline-block; min-width: 1.7em; color: var(--title); }
 .watch-link { font-weight: 700; font-size: 15px; }
+
+/* Featured efficiency clip: centered, about three series-card columns wide.
+   The 44-card grid is repeat(auto-fill, minmax(240px, 1fr)) with a 12px gap.
+   Four columns begin at 996px, so three cards there are 75% of the row minus 3px.
+   Below that, three columns already fill the row, and narrower screens stay full width. */
+#additional-tips .section-inner { container-type: inline-size; }
+#additional-tips h2 { text-align: center; }
+#additional-tips .series-list {
+  display: flex;
+  justify-content: center;
+}
+#additional-tips .series-card { width: 100%; }
+@container (min-width: 996px) {
+  #additional-tips .series-card { width: calc(75% - 3px); }
+}
 .visually-hidden {
   position: absolute;
   width: 1px;
