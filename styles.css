@@ -602,6 +602,27 @@ body.nav-open { overflow: hidden; }
 @container (min-width: 996px) {
   #additional-tips .series-card { width: calc(75% - 3px); }
 }
+
+/* Support note sits at the bottom of the page. Body copy is 3.5× the 17px
+   section text; the heading scales from its 22px size by the same amount.
+   The container cap keeps the longest word inside the column on small screens. */
+#build-answers { text-align: center; }
+#build-answers .section-inner { container-type: inline-size; }
+#build-answers h3,
+#build-answers p {
+  text-align: center;
+  text-transform: uppercase;
+}
+#build-answers h3 {
+  margin: 0 0 12px;
+  font-size: min(77px, 18cqi);
+  line-height: 1.15;
+}
+#build-answers p {
+  margin: 0;
+  font-size: min(59.5px, 13.5cqi);
+  line-height: 1.35;
+}
 .visually-hidden {
   position: absolute;
   width: 1px;
