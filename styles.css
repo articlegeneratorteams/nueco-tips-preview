@@ -624,28 +624,18 @@ body.nav-open { overflow: hidden; }
 .stuck-pill:hover { background: var(--navy-deep); border-color: var(--navy-deep); color: #fff; }
 .stuck-pill:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 .stuck-copy {
-  max-width: 40em;
-  margin: 28px auto 0;
+  margin: 28px 0 0;
   text-align: left;
   overflow-wrap: break-word;
 }
-#stuck-detail .stuck-copy p,
-#stuck-detail .stuck-copy li {
-  font-size: clamp(18px, 2.2vw, 22px);
-  line-height: 1.55;
-}
 #stuck-detail .stuck-copy ol {
-  margin: 0 0 18px;
+  margin: 0 0 14px;
   padding-left: 1.4em;
 }
-#stuck-detail .stuck-copy li { margin: 0 0 10px; }
-#stuck-detail .stuck-copy li:last-child { margin-bottom: 0; }
 #stuck-detail .stuck-copy a { font-weight: 700; overflow-wrap: anywhere; }
 #stuck-detail h3 {
-  margin: 8px 0 12px;
   text-align: center;
   font-weight: 800;
-  font-size: clamp(24px, 2.8vw, 30px);
 }
 #stuck-detail .stuck-close { margin-bottom: 0; }
 .visually-hidden {
