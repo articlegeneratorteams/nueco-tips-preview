@@ -603,7 +603,7 @@ body.nav-open { overflow: hidden; }
   #additional-tips .series-card { width: calc(75% - 3px); }
 }
 
-#stuck-detail { text-align: center; }
+#stuck-detail { text-align: center; padding-top: 12px; }
 #stuck-detail h2 { margin: 0; }
 .stuck-pill {
   display: inline-block;
@@ -624,13 +624,26 @@ body.nav-open { overflow: hidden; }
 .stuck-pill:hover { background: var(--navy-deep); border-color: var(--navy-deep); color: #fff; }
 .stuck-pill:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 .stuck-copy {
-  margin: 28px 0 0;
+  margin: 12px 0 0;
   text-align: left;
   overflow-wrap: break-word;
 }
 #stuck-detail .stuck-copy ol {
   margin: 0 0 14px;
-  padding-left: 1.4em;
+  padding: 0;
+  list-style: none;
+  counter-reset: stuck-step;
+}
+#stuck-detail .stuck-copy ol li {
+  position: relative;
+  padding-left: 22px;
+  counter-increment: stuck-step;
+}
+#stuck-detail .stuck-copy ol li::before {
+  content: counter(stuck-step) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 #stuck-detail .stuck-copy a { font-weight: 700; overflow-wrap: anywhere; }
 #stuck-detail h3 {
