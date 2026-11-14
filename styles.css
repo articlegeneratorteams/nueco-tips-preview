@@ -603,26 +603,51 @@ body.nav-open { overflow: hidden; }
   #additional-tips .series-card { width: calc(75% - 3px); }
 }
 
-/* Support note sits at the bottom of the page. Body copy is 3.5× the 17px
-   section text; the heading scales from its 22px size by the same amount.
-   The container cap keeps the longest word inside the column on small screens. */
-#build-answers { text-align: center; }
-#build-answers .section-inner { container-type: inline-size; }
-#build-answers h3,
-#build-answers p {
+#stuck-detail { text-align: center; }
+#stuck-detail h2 { margin: 0; }
+.stuck-pill {
+  display: inline-block;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: var(--navy);
+  color: #fff;
+  border: 2px solid var(--navy);
+  border-radius: 999px;
+  padding: 14px 28px;
+  font-family: Roboto, "Open Sans", sans-serif;
+  font-weight: 800;
+  font-size: clamp(26px, 4vw, 40px);
+  line-height: 1.2;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.stuck-pill:hover { background: var(--navy-deep); border-color: var(--navy-deep); color: #fff; }
+.stuck-pill:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.stuck-copy {
+  max-width: 40em;
+  margin: 28px auto 0;
+  text-align: left;
+  overflow-wrap: break-word;
+}
+#stuck-detail .stuck-copy p,
+#stuck-detail .stuck-copy li {
+  font-size: clamp(18px, 2.2vw, 22px);
+  line-height: 1.55;
+}
+#stuck-detail .stuck-copy ul {
+  margin: 0 0 18px;
+  padding-left: 1.25em;
+}
+#stuck-detail .stuck-copy li { margin: 0 0 10px; }
+#stuck-detail .stuck-copy li:last-child { margin-bottom: 0; }
+#stuck-detail .stuck-copy a { font-weight: 700; overflow-wrap: anywhere; }
+#stuck-detail h3 {
+  margin: 8px 0 12px;
   text-align: center;
-  text-transform: uppercase;
+  font-weight: 800;
+  font-size: clamp(24px, 2.8vw, 30px);
 }
-#build-answers h3 {
-  margin: 0 0 12px;
-  font-size: min(77px, 18cqi);
-  line-height: 1.15;
-}
-#build-answers p {
-  margin: 0;
-  font-size: min(59.5px, 13.5cqi);
-  line-height: 1.35;
-}
+#stuck-detail .stuck-close { margin-bottom: 0; }
 .visually-hidden {
   position: absolute;
   width: 1px;
