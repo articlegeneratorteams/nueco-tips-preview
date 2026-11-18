@@ -621,8 +621,6 @@ body.nav-open { overflow: hidden; }
   text-decoration: none;
   overflow-wrap: anywhere;
 }
-.stuck-pill:hover { background: var(--navy-deep); border-color: var(--navy-deep); color: #fff; }
-.stuck-pill:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 .stuck-copy {
   margin: 12px 0 0;
   text-align: left;
