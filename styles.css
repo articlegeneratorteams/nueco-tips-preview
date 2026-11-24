@@ -588,18 +588,30 @@ body.nav-open { overflow: hidden; }
 .series-num { display: inline-block; min-width: 1.7em; color: var(--title); }
 .watch-link { font-weight: 700; font-size: 15px; }
 
-/* Featured efficiency clip: centered, about three series-card columns wide.
-   The 44-card grid is repeat(auto-fill, minmax(240px, 1fr)) with a 12px gap.
-   Four columns begin at 996px, so three cards there are 75% of the row minus 3px.
-   Below that, three columns already fill the row, and narrower screens stay full width. */
+/* Featured clips (start-here inventory and efficiency): centered, about three
+   series-card columns wide. The 44-card grid is repeat(auto-fill, minmax(240px, 1fr))
+   with a 12px gap. Four columns begin at 996px, so three cards there are 75% of
+   the row minus 3px. Below that, three columns already fill the row, and narrower
+   screens stay full width. */
+#start-here { padding-top: 28px; padding-bottom: 36px; }
+#start-here .start-here-lead {
+  text-align: center;
+  max-width: 40em;
+  margin: 0 auto 16px;
+}
+#start-here .section-inner,
 #additional-tips .section-inner { container-type: inline-size; }
+#start-here h2,
 #additional-tips h2 { text-align: center; }
+#start-here .series-list,
 #additional-tips .series-list {
   display: flex;
   justify-content: center;
 }
+#start-here .series-card,
 #additional-tips .series-card { width: 100%; }
 @container (min-width: 996px) {
+  #start-here .series-card,
   #additional-tips .series-card { width: calc(75% - 3px); }
 }
 
